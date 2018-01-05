@@ -120,6 +120,8 @@ import safe # Used to get SafeDict
 import tracebackrepy
 import virtual_namespace
 
+import tempSensor
+
 from exception_hierarchy import *
 
 # Save a copy of a few functions not available at runtime.
@@ -770,6 +772,22 @@ VIRTUAL_NAMESPACE_OBJECT_WRAPPER_INFO = {
        'return' : SafeDict()},
 }
 
+RPI_SENSORDATA_WRAPPER_INFO = {
+    'get_temperature' :
+        {'func' : 'tempSensor.get_temperature',
+         'args' : [],
+         'return' : [Str()]},
+    'get_humidity' :
+        {'func' : 'tempSensor.get_humidity',
+         'args' : [],
+         'return' : [Str()]},
+    'get_pressure' :
+        {'func' : 'tempSensor.get_pressure',
+         'args' : [],
+         'return' : [Str()]},
+}
+
+USERCONTEXT_WRAPPER_INFO.update(RPI_SENSORDATA_WRAPPER_INFO)
 
 ##############################################################################
 # The classes we define from which actual wrappers are instantiated.
