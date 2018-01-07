@@ -774,17 +774,17 @@ VIRTUAL_NAMESPACE_OBJECT_WRAPPER_INFO = {
 
 RPI_SENSORDATA_WRAPPER_INFO = {
     'get_temperature' :
-        {'func' : 'tempSensor.get_temperature',
+        {'func' : tempSensor.get_temperature,
          'args' : [],
-         'return' : [Str()]},
+         'return' : Float()},
     'get_humidity' :
-        {'func' : 'tempSensor.get_humidity',
+        {'func' : tempSensor.get_humidity,
          'args' : [],
-         'return' : [Str()]},
+         'return' : Float()},
     'get_pressure' :
-        {'func' : 'tempSensor.get_pressure',
+        {'func' : tempSensor.get_pressure,
          'args' : [],
-         'return' : [Str()]},
+         'return' : Float()},
 }
 
 USERCONTEXT_WRAPPER_INFO.update(RPI_SENSORDATA_WRAPPER_INFO)
