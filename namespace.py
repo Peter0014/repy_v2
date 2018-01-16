@@ -120,7 +120,8 @@ import safe # Used to get SafeDict
 import tracebackrepy
 import virtual_namespace
 
-import tempSensor
+import environmentSensor
+import lightSensor
 
 from exception_hierarchy import *
 
@@ -772,22 +773,38 @@ VIRTUAL_NAMESPACE_OBJECT_WRAPPER_INFO = {
        'return' : SafeDict()},
 }
 
-RPI_SENSORDATA_WRAPPER_INFO = {
+RPI_ENVIRONMENT_SENSORDATA_WRAPPER_INFO = {
     'get_temperature' :
-        {'func' : tempSensor.get_temperature,
+        {'func' : environmentSensor.get_temperature,
          'args' : [],
          'return' : Float()},
     'get_humidity' :
-        {'func' : tempSensor.get_humidity,
+        {'func' : environmentSensor.get_humidity,
          'args' : [],
          'return' : Float()},
     'get_pressure' :
-        {'func' : tempSensor.get_pressure,
+        {'func' : environmentSensor.get_pressure,
          'args' : [],
          'return' : Float()},
 }
 
-USERCONTEXT_WRAPPER_INFO.update(RPI_SENSORDATA_WRAPPER_INFO)
+RPI_LIGHT_SENSORDATA_WRAPPER_INFO = {
+    'get_UV' :
+        {'func' : lightSensor.get_UV,
+         'args' : [],
+         'return' : Float()},
+    'get_IR' :
+        {'func' : lightSensor.get_IR,
+         'args' : [],
+         'return' : Int()},
+    'get_VIS' :
+        {'func' : lightSensor.get_VIS,
+         'args' : [],
+         'return' : Int()},
+}
+
+USERCONTEXT_WRAPPER_INFO.update(RPI_ENVIRONMENT_SENSORDATA_WRAPPER_INFO)
+USERCONTEXT_WRAPPER_INFO.update(RPI_LIGHT_SENSORDATA_WRAPPER_INFO)
 
 ##############################################################################
 # The classes we define from which actual wrappers are instantiated.
