@@ -122,6 +122,7 @@ import virtual_namespace
 
 import environmentSensor
 import lightSensor
+import airSensor
 
 from exception_hierarchy import *
 
@@ -803,8 +804,20 @@ RPI_LIGHT_SENSORDATA_WRAPPER_INFO = {
          'return' : Int()},
 }
 
+RPI_AIRQUALITY_SENSORDATA_WRAPPER_INFO = {
+    'get_eCO2' :
+        {'func' : airSensor.get_eCO2,
+         'args' : [],
+         'return' : Int()},
+    'get_TVOC' :
+        {'func' : airSensor.get_TVOC,
+         'args' : [],
+         'return' : Int()},
+}
+
 USERCONTEXT_WRAPPER_INFO.update(RPI_ENVIRONMENT_SENSORDATA_WRAPPER_INFO)
 USERCONTEXT_WRAPPER_INFO.update(RPI_LIGHT_SENSORDATA_WRAPPER_INFO)
+USERCONTEXT_WRAPPER_INFO.update(RPI_AIRQUALITY_SENSORDATA_WRAPPER_INFO)
 
 ##############################################################################
 # The classes we define from which actual wrappers are instantiated.
